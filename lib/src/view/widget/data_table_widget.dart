@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/app_colors.dart';
 import '../../../core/demo_api.dart';
 
 class DataTableWidget extends StatefulWidget {
@@ -37,7 +38,7 @@ class _DataTableWidgetState extends State<DataTableWidget> {
           borderRadius: BorderRadius.circular(10),
         ),
         child: DataTable(
-          border: TableBorder.all(color:DemoApi.tableData.isNotEmpty ? Colors.blue : Colors.white, width: 2),
+          border: TableBorder.all(color:Colors.white, width: 1),
           columns: tableHeaders
               .map(
                 (header) => DataColumn(
@@ -55,32 +56,20 @@ class _DataTableWidgetState extends State<DataTableWidget> {
           rows: DemoApi.tableData.asMap().entries.map((entry) {
             final rowIndex = entry.key;
             final dataRow = entry.value;
-
             return DataRow(
-              color: MaterialStateProperty.all(Colors.white),
+              color: MaterialStateProperty.all(
+                rowIndex % 2 == 0 ? AppColors.secondaryColor : AppColors.primaryColor,
+              ),
               cells: tableHeaders.map((header) {
                 return DataCell(
-                  GestureDetector(
-                    onTap: () {
-                      switch (rowIndex) {
-                        case 0:
-                          print('Row 0 tapped');
-                          break;
-                        case 1:
-                          print('Row 1 tapped');
-                          break;
-                        default:
-                          print('Row $rowIndex tapped');
-                      }
-                    },
-                    child: Text(
-                      dataRow[header]?.toString() ?? '',
-                      style: const TextStyle(color: Colors.black),
-                    ),
+                  Text(
+                    dataRow[header]?.toString() ?? '',
+                    style: const TextStyle(color: Colors.white),
                   ),
                 );
               }).toList(),
             );
+
           }).toList(),
 
         ),

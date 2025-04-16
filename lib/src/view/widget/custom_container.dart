@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mts_app/core/app_colors.dart';
 
+import '../../../utils/helper/helper_function.dart';
+
 class CustomContainer extends StatelessWidget {
   const CustomContainer({
     super.key,
@@ -21,6 +23,7 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = HelperFunction.isDarkMode(context);
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -28,7 +31,7 @@ class CustomContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade500,
+            color: dark?Colors.transparent:Colors.grey,
             offset: Offset(2, 2),
             spreadRadius: 2,
             blurRadius: 5
