@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mts_app/core/app_colors.dart';
 import 'package:mts_app/core/image_path.dart';
+import 'package:mts_app/src/view/controllers/theme_mode_controller.dart';
 import 'package:mts_app/src/view/screen/today_task_screen.dart';
 import 'package:mts_app/src/view/widget/custom_drawer_icon.dart';
+import 'package:mts_app/src/view/widget/custom_toggle_switch.dart';
 import 'package:mts_app/utils/helper/helper_function.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -14,6 +16,7 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = HelperFunction.isDarkMode(context);
+    final controller = Get.find<ThemeController>();
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -39,8 +42,15 @@ class AppDrawer extends StatelessWidget {
               title: 'User Profile',
               icon: Icon(Iconsax.profile_circle),
               onTap: () {}),
+          Obx(
+            () {
+              final isDark = controller.isDark.value;
+              return CustomToggleSwitch(isDark: isDark, controller: controller);
+            },
+          )
         ],
       ),
     );
   }
 }
+

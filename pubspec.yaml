@@ -32,6 +32,7 @@ dependencies:
   flutter_native_splash: ^2.4.6
   get: ^4.7.2
   iconsax: ^0.0.8
+  flutter_switch: ^0.3.2
 
 dev_dependencies:
   flutter_test:
