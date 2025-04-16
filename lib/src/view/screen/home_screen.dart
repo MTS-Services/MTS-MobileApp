@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mts_app/core/app_colors.dart';
-import 'package:mts_app/core/image_path.dart';
+import 'package:mts_app/src/view/widget/custom_appbar.dart';
+import 'package:mts_app/src/view/widget/cutom_drawer.dart';
 import '../widget/custom_container.dart';
 import '../widget/custom_drop_down_button.dart';
 import '../widget/data_table_widget.dart';
@@ -26,6 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
 
+      appBar: CustomAppBar(),
+      drawer: AppDrawer(),
+
+
       appBar: AppBar(
           backgroundColor: AppColors.secondaryColor,
           foregroundColor: Colors.white,
@@ -34,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 80,
             width: 100,
           )),
+
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         child: Column(
@@ -114,7 +119,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            SizedBox(
+
+          ],
+        ),
+      ),
+    );
+  }
+}            SizedBox(
               height: 15,
             ),
             DataTableWidget()
@@ -124,5 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
 
 
