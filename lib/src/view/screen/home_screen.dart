@@ -3,6 +3,7 @@ import 'package:mts_app/core/app_colors.dart';
 import 'package:mts_app/core/image_path.dart';
 import '../widget/custom_container.dart';
 import '../widget/custom_drop_down_button.dart';
+import '../widget/data_table_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,13 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
     "Filter by order by",
   ];
 
-  // Selected item (initially first one)
   String selectedFilter = "Filter by Account";
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+
       appBar: AppBar(
           backgroundColor: AppColors.secondaryColor,
           foregroundColor: Colors.white,
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           onPressed: () {
                             setState(() {
-                              selectedFilter = filterOptions[0]; // Reset
+                              selectedFilter = filterOptions[0];
                             });
                           },
                           child: const Text(
@@ -113,12 +114,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-
-
+            SizedBox(
+              height: 15,
+            ),
+            DataTableWidget()
           ],
         ),
       ),
     );
   }
 }
+
 
