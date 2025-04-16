@@ -3,6 +3,7 @@ import 'package:mts_app/src/view/widget/custom_appbar.dart';
 import 'package:mts_app/src/view/widget/cutom_drawer.dart';
 import '../widget/custom_container.dart';
 import '../widget/custom_drop_down_button.dart';
+import '../widget/data_table_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,15 +19,26 @@ class _HomeScreenState extends State<HomeScreen> {
     "Filter by order by",
   ];
 
-  // Selected item (initially first one)
   String selectedFilter = "Filter by Account";
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+
       appBar: CustomAppBar(),
       drawer: AppDrawer(),
+
+
+      appBar: AppBar(
+          backgroundColor: AppColors.secondaryColor,
+          foregroundColor: Colors.white,
+          title: Image.asset(
+            ImagePath.appLogoLight,
+            height: 80,
+            width: 100,
+          )),
+
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         child: Column(
@@ -70,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           onPressed: () {
                             setState(() {
-                              selectedFilter = filterOptions[0]; // Reset
+                              selectedFilter = filterOptions[0];
                             });
                           },
                           child: const Text(
@@ -107,9 +119,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
+
+          ],
+        ),
+      ),
+    );
+  }
+}            SizedBox(
+              height: 15,
+            ),
+            DataTableWidget()
           ],
         ),
       ),
     );
   }
 }
+
+
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mts_app/core/app_colors.dart';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer({
@@ -23,11 +24,18 @@ class CustomContainer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.blueAccent,
+        color: AppColors.secondaryColor,
         borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade500,
+            offset: Offset(2, 2),
+            spreadRadius: 2,
+            blurRadius: 5
+          )
+        ]
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (icon != null)
@@ -44,6 +52,7 @@ class CustomContainer extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          SizedBox(height: 5),
           Text(
             '\$$count',
             style: TextStyle(
