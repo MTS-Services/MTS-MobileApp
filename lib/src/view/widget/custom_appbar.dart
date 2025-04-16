@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mts_app/core/app_colors.dart';
 import 'package:mts_app/core/image_path.dart';
+import 'package:mts_app/src/view/widget/custom_action_widget.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
   });
+
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
@@ -21,6 +23,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         width: 100,
       ),
       titleSpacing: 0,
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 5),
+          child: CustomActionWidget(),
+        )
+      ],
       leading: Builder(builder: (context) {
         return GestureDetector(
             onTap: () => Scaffold.of(context).openDrawer(),
