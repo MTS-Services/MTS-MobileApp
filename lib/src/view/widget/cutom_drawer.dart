@@ -1,10 +1,9 @@
-// lib/widgets/app_drawer.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mts_app/core/app_colors.dart';
 import 'package:mts_app/core/image_path.dart';
-import 'package:mts_app/src/view/controllers/theme_mode_controller.dart';
+import 'package:mts_app/src/view/screen/project_screen.dart';
 import 'package:mts_app/src/view/screen/today_task_screen.dart';
 import 'package:mts_app/src/view/widget/custom_drawer_icon.dart';
 import 'package:mts_app/src/view/widget/custom_toggle_switch.dart';
@@ -31,7 +30,11 @@ class AppDrawer extends StatelessWidget {
           CustomDrawerIcon(
               title: 'Home', icon: Icon(Iconsax.home), onTap: () {}),
           CustomDrawerIcon(
-              title: 'Projects', icon: Icon(Iconsax.activity), onTap: () {}),
+              title: 'Projects',
+              icon: Icon(Iconsax.activity),
+              onTap: () {
+                Get.to(() => ProjectScreen());
+              }),
           CustomDrawerIcon(
               title: 'Today\'s Task',
               icon: Icon(Iconsax.task_square),
