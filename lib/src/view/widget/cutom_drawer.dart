@@ -23,10 +23,10 @@ class AppDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-                color: dark ? AppColors.bgColor : Colors.grey[300]),
+                color: dark ? AppColors.secondaryDark: Colors.grey[300]),
             child: Image(
                 image: AssetImage(
-                    dark ? ImagePath.appLogoLight : ImagePath.appLogoDark)),
+                    dark ? ImagePath.appLogoLight : ImagePath.appLogoDark ,)),
           ),
           CustomDrawerIcon(
               title: 'Home', icon: Icon(Iconsax.home), onTap: () {}),

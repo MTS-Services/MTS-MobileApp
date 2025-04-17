@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mts_app/core/app_colors.dart';
-
 import '../../../utils/helper/helper_function.dart';
-
 class CustomContainer extends StatelessWidget {
   const CustomContainer({
     super.key,
@@ -12,6 +10,8 @@ class CustomContainer extends StatelessWidget {
     required this.count,
     this.icon,
     this.fontSize = 20,
+    required this.bgColor,
+    required this.txColor,
   });
 
   final double height;
@@ -20,15 +20,16 @@ class CustomContainer extends StatelessWidget {
   final String count;
   final IconData? icon;
   final double fontSize;
-
+  final Color bgColor;
+  final Color txColor;
   @override
   Widget build(BuildContext context) {
     final dark = HelperFunction.isDarkMode(context);
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.secondaryColor,
-        borderRadius: BorderRadius.circular(16),
+        color:dark?AppColors.secondaryDark : AppColors.primaryLight,
+        borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
             color: dark?Colors.transparent:Colors.grey,
@@ -53,15 +54,17 @@ class CustomContainer extends StatelessWidget {
               color: Colors.white,
               fontSize: fontSize,
               fontWeight: FontWeight.bold,
+
             ),
           ),
           SizedBox(height: 5),
           Text(
             '\$$count',
             style: TextStyle(
-              color: Colors.white,
+              color: txColor,
               fontSize: fontSize,
               fontWeight: FontWeight.w500,
+
             ),
           ),
         ],

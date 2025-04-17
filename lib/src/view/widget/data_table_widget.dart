@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/app_colors.dart';
 import '../../../core/demo_api.dart';
+import '../../../utils/helper/helper_function.dart';
 
 class DataTableWidget extends StatefulWidget {
   const DataTableWidget({super.key});
@@ -29,6 +30,7 @@ class _DataTableWidgetState extends State<DataTableWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final dark = HelperFunction.isDarkMode(context);
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Container(
@@ -58,7 +60,7 @@ class _DataTableWidgetState extends State<DataTableWidget> {
             final dataRow = entry.value;
             return DataRow(
               color: MaterialStateProperty.all(
-                rowIndex % 2 == 0 ? AppColors.secondaryColor : AppColors.primaryColor,
+                (rowIndex % 2 == 0) ? AppColors.secondaryDark : AppColors.primaryLight,
               ),
               cells: tableHeaders.map((header) {
                 return DataCell(

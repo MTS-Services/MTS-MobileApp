@@ -14,8 +14,11 @@ class TodayTaskScreen extends StatelessWidget {
       body: Center(
         child: GestureDetector(
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => HomeScreen(),
+                ),
+              );
             },
             child: Icon(Icons.menu)),
       ),
