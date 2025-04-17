@@ -35,7 +35,6 @@ class CustomDropdownButton extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    final dark = HelperFunction.isDarkMode(context);
     return Container(
       height: height,
       width: width,
