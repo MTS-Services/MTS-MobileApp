@@ -21,4 +21,13 @@ class AppColors{
   static const Color ctaActiveDark = Color(0xFF0066D7);
   static const Color ctaTextDark = Color(0xFFFFFFFF);
   static const Color ctaTextActiveDark = Color(0xFFFFE609);
+
+  static List<Color> getCountColors(bool dark) {
+    return [
+      dark ? AppColors.primaryDark : AppColors.borderColorDark,
+      dark ? AppColors.ctaDark : AppColors.borderColorDark,
+      dark ? AppColors.ctaActiveDark : AppColors.borderColorDark,
+      dark ? AppColors.ctaTextActiveDark : AppColors.borderColorDark,
+    ];
+  }
 }

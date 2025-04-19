@@ -54,13 +54,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                       fontSize: 14,
                       title: 'Total Delivered',
                       count: '5000',
-                      txColor: index % 2 != 0
-                          ? dark
-                              ? AppColors.ctaTextActiveDark
-                              : AppColors.borderColorDark
-                          : dark
-                              ? AppColors.ctaDark
-                              : AppColors.borderColorDark);
+                      txColor:  AppColors.getCountColors(dark)[index]);
                 },
               ),
             ),
