@@ -1,27 +1,33 @@
 import 'dart:ui';
 
 class AppColors{
-  static Color appBarColor = Color(0xff05865A);
-  static Color primaryColor = Color(0xff19b4e7);
-  static Color secondaryColor = Color(0xff11284a);
-  static Color bgColor = Color(0xff101828);
+  static const Color primaryLight = Color(0xFF19B3E7);
+  static const Color  secondaryLight = Color(0xFF11284A);
+  static const Color accentLight = Color(0xFF000000);
+  static const Color backgroundLight = Color(0xFFFFFFFF);
+  static const Color btnShadowColorLight = Color(0xFF1E4D94);
+  static const Color cardLight = Color(0xFFFFFFFF);
 
-  //---Border Colors
-  static const Color borderPrimary = Color(0xFFD9D9D9);
-  static const Color borderSecondary = Color(0XFFE6E6E6);
+  static const Color boxStyleLight = Color.fromRGBO(3, 185, 252, 0.904);
 
-  //---Error and Validation Colors
-  static const Color error = Color(0xFFD32F2F);
-  static const Color success = Color(0XFF388E3C);
-  static const Color warning = Color(0XFFF57C00);
-  static const Color info = Color(0XFF1976D2);
+//------------------dark Mode------------------------------------
+  static const Color primaryDark = Color(0xFF19B3E7);
+  static const Color secondaryDark = Color(0xFF11284A);
+  static const Color accentDark = Color(0xFFFFFFFF);
+  static const Color backgroundDark = Color(0xFF101828);
+  static const Color borderColorDark = Color(0xFFFFFFFF);
+  static const Color cardDark = Color(0xFF191919);
+  static const Color ctaDark = Color(0xFF007AFF);
+  static const Color ctaActiveDark = Color(0xFF0066D7);
+  static const Color ctaTextDark = Color(0xFFFFFFFF);
+  static const Color ctaTextActiveDark = Color(0xFFFFE609);
 
-  //---Neutral Shades Colors
-  static const Color black = Color(0xFF232323);
-  static const Color darkerGrey = Color(0XFF4F4F4F);
-  static const Color darkGrey = Color(0XFF939393);
-  static const Color grey = Color(0XFFE0E0E0);
-  static const Color softGrey = Color(0XFFF4F4F4);
-  static const Color lightGrey = Color(0XFFF9F9F9);
-  static const Color white = Color(0XFFFFFFFF);
+  static List<Color> getCountColors(bool dark) {
+    return [
+      dark ? AppColors.primaryDark : AppColors.borderColorDark,
+      dark ? AppColors.ctaDark : AppColors.borderColorDark,
+      dark ? AppColors.ctaActiveDark : AppColors.borderColorDark,
+      dark ? AppColors.ctaTextActiveDark : AppColors.borderColorDark,
+    ];
+  }
 }

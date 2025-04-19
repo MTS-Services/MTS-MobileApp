@@ -17,6 +17,7 @@ dependencies:
   get: ^4.7.2
   iconsax: ^0.0.8
   flutter_switch: ^0.3.2
+  fl_chart: ^0.71.0
 
 dev_dependencies:
   flutter_test:

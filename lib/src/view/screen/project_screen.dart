@@ -41,18 +41,20 @@ class _ProjectScreenState extends State<ProjectScreen> {
                 itemCount: 4,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 15,
                   childAspectRatio: 2.0,
                 ),
                 itemBuilder: (context, index) {
                   return CustomContainer(
-                    height: size.height * 0.05,
-                    width: size.width * 0.42,
-                    fontSize: 18,
-                    title: 'Total Delivered',
-                    count: '5000',
-                  );
+                      bgColor:
+                          dark ? AppColors.primaryDark : AppColors.primaryLight,
+                      height: size.height * 0.05,
+                      width: size.width * 0.42,
+                      fontSize: 14,
+                      title: 'Total Delivered',
+                      count: '5000',
+                      txColor:  AppColors.getCountColors(dark)[index]);
                 },
               ),
             ),
@@ -88,11 +90,16 @@ class _ProjectScreenState extends State<ProjectScreen> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 5),
                               child: CustomDropdownButton(
-                                backgroundColor: dark?AppColors.primaryColor:AppColors.secondaryColor,
-                                textColor: Colors.black,
-                                borderColor: Colors.lightBlueAccent,
+                                backgroundColor: dark
+                                    ? AppColors.secondaryLight
+                                    : Colors.white,
+                                textColor: dark
+                                    ? Colors.white
+                                    : AppColors.secondaryLight,
+                                borderColor: dark ? Colors.white : Colors.blue,
                                 height: size.height / 16,
                                 width: size.width * 0.44,
+                                fontSize: 12,
                                 selectedValue: selectedFilter,
                                 items: filterOptions,
                                 onChanged: (value) {
@@ -116,4 +123,3 @@ class _ProjectScreenState extends State<ProjectScreen> {
     );
   }
 }
-
