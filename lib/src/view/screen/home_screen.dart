@@ -16,6 +16,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<double> orderAmount = [8000, 9000, 6000, 10000, 9500, 7000, 4000, 8000, 9500, 8500];
+  final List<double> afterFiverrAmount = [7000, 8000, 5500, 9200, 9000, 6200, 3500, 7400, 9100, 7900];
+  final List<double> bonus = [1200, 1000, 400, 800, 600, 300, 150, 500, 700, 300];
   @override
   Widget build(BuildContext context) {
     final dark = HelperFunction.isDarkMode(context);
@@ -63,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 10),
               CustomText(text: 'Projects Distributions'),
               SizedBox(height: 15),
+
             ],
           ),
         ),
