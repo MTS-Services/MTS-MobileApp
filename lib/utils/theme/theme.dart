@@ -8,13 +8,13 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    primaryColor: AppColors.primaryColor,
+    primaryColor: AppColors.primaryLight,
     inputDecorationTheme: TextFieldTheme.lightInputDecorationTheme,
   );
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    primaryColor: AppColors.primaryColor,
+    primaryColor: AppColors.primaryDark,
     inputDecorationTheme: TextFieldTheme.darkInputDecorationTheme,
   );
 }

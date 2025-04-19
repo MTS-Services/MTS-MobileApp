@@ -25,8 +25,8 @@ class AppDrawer extends StatelessWidget {
             () => DrawerHeader(
               decoration: BoxDecoration(
                   color: controller.isDark.value
-                      ? AppColors.bgColor
-                      : Colors.grey[300]),
+                      ? AppColors.secondaryLight
+                      : AppColors.primaryLight),
               child: Image(
                   image: AssetImage(controller.isDark.value
                       ? ImagePath.appLogoDark
@@ -34,9 +34,11 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           CustomDrawerIcon(
-              title: 'Home', icon: Icon(Iconsax.home), onTap: () {
-                Get.to(()=>HomeScreen());
-          }),
+              title: 'Home',
+              icon: Icon(Iconsax.home),
+              onTap: () {
+                Get.to(() => HomeScreen());
+              }),
           CustomDrawerIcon(
               title: 'Projects',
               icon: Icon(Iconsax.activity),
