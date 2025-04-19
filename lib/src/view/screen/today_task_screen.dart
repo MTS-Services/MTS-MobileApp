@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mts_app/src/view/screen/home_screen.dart';
+import 'package:mts_app/src/view/widget/custom_text_form_field.dart';
 import 'package:mts_app/src/view/widget/custom_appbar.dart';
 import 'package:mts_app/src/view/widget/cutom_drawer.dart';
 
@@ -11,16 +11,18 @@ class TodayTaskScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(),
       drawer: AppDrawer(),
-      body: Center(
-        child: GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
-                ),
-              );
-            },
-            child: Icon(Icons.menu)),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+          child: Column(
+            children: [
+              CustomTextFormField(),
+              Row(
+                children: [],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

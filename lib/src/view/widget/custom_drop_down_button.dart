@@ -1,7 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils/helper/helper_function.dart';
 
 class CustomDropdownButton extends StatelessWidget {
   final double height;
@@ -35,7 +34,6 @@ class CustomDropdownButton extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    final dark = HelperFunction.isDarkMode(context);
     return Container(
       height: height,
       width: width,

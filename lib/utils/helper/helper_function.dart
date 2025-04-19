@@ -5,4 +5,7 @@ class HelperFunction {
   static bool isDarkMode(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark;
   }
+  static bool showTextFormField() {
+    return true;
+  }
 }
