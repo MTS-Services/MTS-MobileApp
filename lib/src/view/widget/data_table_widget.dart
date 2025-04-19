@@ -57,7 +57,7 @@ class _DataTableWidgetState extends State<DataTableWidget> {
             final rowIndex = entry.key;
             final dataRow = entry.value;
             return DataRow(
-              color: MaterialStateProperty.all(
+              color: WidgetStateProperty.all(
                 rowIndex % 2 == 0 ? AppColors.secondaryColor : AppColors.primaryColor,
               ),
               cells: tableHeaders.map((header) {

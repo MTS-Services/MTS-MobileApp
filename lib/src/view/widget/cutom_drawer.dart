@@ -15,18 +15,22 @@ class AppDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = HelperFunction.isDarkMode(context);
     final controller = Get.find<ThemeController>();
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
-            decoration: BoxDecoration(
-                color: dark ? AppColors.bgColor : Colors.grey[300]),
-            child: Image(
-                image: AssetImage(
-                    dark ? ImagePath.appLogoLight : ImagePath.appLogoDark)),
+          Obx(
+            () => DrawerHeader(
+              decoration: BoxDecoration(
+                  color: controller.isDark.value
+                      ? AppColors.bgColor
+                      : Colors.grey[300]),
+              child: Image(
+                  image: AssetImage(controller.isDark.value
+                      ? ImagePath.appLogoDark
+                      : ImagePath.appLogoLight)),
+            ),
           ),
           CustomDrawerIcon(
               title: 'Home', icon: Icon(Iconsax.home), onTap: () {}),
