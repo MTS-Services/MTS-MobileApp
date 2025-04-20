@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:mts_app/src/view/widget/custom_appbar.dart';
 import 'package:mts_app/src/view/widget/custom_container.dart';
+import 'package:mts_app/src/view/widget/custom_text_form_field.dart';
 import 'package:mts_app/src/view/widget/cutom_drawer.dart';
 
 import '../../../core/app_colors.dart';
@@ -32,6 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              CustomTextFormField(),
+              SizedBox(height: 10,),
               SizedBox(
                 height: size.height * 0.23,
                 child: GridView.builder(
