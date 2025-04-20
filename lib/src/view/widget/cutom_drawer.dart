@@ -6,6 +6,7 @@ import 'package:mts_app/core/image_path.dart';
 import 'package:mts_app/src/view/controllers/theme_mode_controller.dart';
 import 'package:mts_app/src/view/screen/employees_list_screen.dart';
 import 'package:mts_app/src/view/screen/home_screen.dart';
+import 'package:mts_app/src/view/screen/performance_screen.dart';
 import 'package:mts_app/src/view/screen/project_screen.dart';
 import 'package:mts_app/src/view/screen/today_task_screen.dart';
 import 'package:mts_app/src/view/widget/custom_drawer_icon.dart';
@@ -50,7 +51,9 @@ class AppDrawer extends StatelessWidget {
               icon: Icon(Iconsax.task_square),
               onTap: () => Get.to(() => TodayTaskScreen())),
           CustomDrawerIcon(
-              title: 'Performance', icon: Icon(Iconsax.trend_up), onTap: () {}),
+              title: 'Performance', icon: Icon(Iconsax.trend_up), onTap: () {
+                Get.to(()=>PerformanceScreen());
+          }),
           CustomDrawerIcon(
               title: 'User Profile',
               icon: Icon(Iconsax.profile_circle),
