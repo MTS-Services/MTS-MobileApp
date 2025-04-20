@@ -36,12 +36,13 @@ class CustomContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: dark?Colors.transparent:Colors.grey,
-            offset: Offset(2, 2),
-            spreadRadius: 2,
-            blurRadius: 5
+            color: dark ? Colors.black.withOpacity(0.3) : Colors.grey.withOpacity(0.3),
+            offset: Offset(2, 4),
+            spreadRadius: 1,
+            blurRadius: 8,
           )
-        ]
+        ],
+
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
