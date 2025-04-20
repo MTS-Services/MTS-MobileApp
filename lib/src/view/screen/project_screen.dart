@@ -22,6 +22,64 @@ class _ProjectScreenState extends State<ProjectScreen> {
   ];
   String selectedFilter = "Filter by Account";
 
+  List<String> tableHeaders = [
+    "Date",
+    "Account",
+    "Client Name",
+    "Operation-Status",
+    "Sheet link",
+    "Ordered by",
+    "Delivery Last Date",
+    "Profile Status",
+    "After Fiverr",
+    "Tips",
+    "Rating",
+  ];
+
+  List<Map<String, dynamic>> sampleRows = [
+    {
+      "Date": "2025-04-20",
+      "Account": "acc_01",
+      "Client Name": "John Doe",
+      "Operation-Status": "Completed",
+      "Sheet link": "https://example.com/sheet1",
+      "Ordered by": "Admin",
+      "Delivery Last Date": "2025-04-25",
+      "Profile Status": "Active",
+      "After Fiverr": "Transferred",
+      "Tips": "Good communication",
+      "Rating": 4.8,
+    },
+    {
+      "Date": "2025-04-19",
+      "Account": "acc_02",
+      "Client Name": "Jane Smith",
+      "Operation-Status": "In Progress",
+      "Sheet link": "https://example.com/sheet2",
+      "Ordered by": "Manager",
+      "Delivery Last Date": "2025-04-24",
+      "Profile Status": "Pending",
+      "After Fiverr": "Awaiting",
+      "Tips": "Follow-up needed",
+      "Rating": 3.5,
+    },
+    {
+      "Date": "2025-04-18",
+      "Account": "acc_03",
+      "Client Name": "Alex Brown",
+      "Operation-Status": "Delayed",
+      "Sheet link": "https://example.com/sheet3",
+      "Ordered by": "Support",
+      "Delivery Last Date": "2025-04-23",
+      "Profile Status": "On Hold",
+      "After Fiverr": "Paused",
+      "Tips": "Needs approval",
+      "Rating": 2.9,
+    },
+  ];
+
+
+
   @override
   Widget build(BuildContext context) {
     final dark = HelperFunction.isDarkMode(context);
@@ -54,7 +112,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                       fontSize: 14,
                       title: 'Total Delivered',
                       count: '5000',
-                      txColor:  AppColors.getCountColors(dark)[index]);
+                      txColor: AppColors.getCountColors(dark)[index]);
                 },
               ),
             ),
@@ -116,7 +174,16 @@ class _ProjectScreenState extends State<ProjectScreen> {
                 },
               ),
             ),
-            DataTableWidget()
+            ReusableDataTable(
+              tableHeaders:tableHeaders,
+              tableData: sampleRows,
+              evenRowColor: AppColors.secondaryDark,
+              oddRowColor: AppColors.primaryLight,
+              headerColor:
+                  dark ? AppColors.secondaryDark : AppColors.primaryLight,
+              headerTextColor:AppColors.backgroundLight,
+              cellTextColor: AppColors.backgroundLight,
+            )
           ],
         ),
       ),

@@ -1,31 +1,24 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/app_colors.dart';
-import '../../../core/demo_api.dart';
+class ReusableDataTable extends StatelessWidget {
+  final List<String> tableHeaders;
+  final List<Map<String, dynamic>> tableData;
+  final Color evenRowColor;
+  final Color oddRowColor;
+  final Color headerColor;
+  final Color headerTextColor;
+  final Color cellTextColor;
 
-class DataTableWidget extends StatefulWidget {
-  const DataTableWidget({super.key});
-
-  @override
-  State<DataTableWidget> createState() => _DataTableWidgetState();
-}
-
-class _DataTableWidgetState extends State<DataTableWidget> {
-  final List<String> tableHeaders = [
-    'Date',
-    'Account',
-    'Client Name',
-    'Operation-Status',
-    'Sheet link',
-    'Ordered by',
-    'Delivery Last Date',
-    'Profile Status',
-    'After Fiverr',
-    'Tips',
-    'Rating',
-  ];
-
-
+  const ReusableDataTable({
+    super.key,
+    required this.tableHeaders,
+    required this.tableData,
+    required this.evenRowColor ,
+    required  this.oddRowColor ,
+    required this.headerColor,
+    required this.headerTextColor,
+    required this.cellTextColor ,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,47 +27,44 @@ class _DataTableWidgetState extends State<DataTableWidget> {
       child: Container(
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: DemoApi.tableData.isNotEmpty ? Colors.blue : Colors.white,
+          color: headerColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: DataTable(
-          border: TableBorder.all(color:Colors.white, width: 1),
+          border: TableBorder.all(color: Colors.white, width: 1),
           columns: tableHeaders
               .map(
                 (header) => DataColumn(
               label: Text(
                 header,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: headerTextColor,
                   fontSize: 14,
                 ),
               ),
             ),
           )
               .toList(),
-          rows: DemoApi.tableData.asMap().entries.map((entry) {
+          rows: tableData.asMap().entries.map((entry) {
             final rowIndex = entry.key;
             final dataRow = entry.value;
             return DataRow(
               color: MaterialStateProperty.all(
-                (rowIndex % 2 == 0) ? AppColors.secondaryDark : AppColors.primaryLight,
+                (rowIndex % 2 == 0) ? evenRowColor : oddRowColor,
               ),
               cells: tableHeaders.map((header) {
                 return DataCell(
                   Text(
                     dataRow[header]?.toString() ?? '',
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(color: cellTextColor),
                   ),
                 );
               }).toList(),
             );
-
           }).toList(),
-
         ),
       ),
-
     );
   }
 }
