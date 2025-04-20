@@ -81,8 +81,8 @@ class _TodayTaskScreenState extends State<TodayTaskScreen> {
                         height: size.height * 0.12,
                         width: size.width * 0.42,
                         fontSize: 14,
-                        title: 'Total Delivered',
-                        count: '5000',
+                        title: 'Total Revision',
+                        count: '10',
                         txColor: Colors.white,
                       ),
                     );
