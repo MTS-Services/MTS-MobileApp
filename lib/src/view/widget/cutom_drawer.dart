@@ -10,7 +10,6 @@ import 'package:mts_app/src/view/screen/project_screen.dart';
 import 'package:mts_app/src/view/screen/today_task_screen.dart';
 import 'package:mts_app/src/view/widget/custom_drawer_icon.dart';
 import 'package:mts_app/src/view/widget/custom_toggle_switch.dart';
-import 'package:mts_app/utils/helper/helper_function.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
